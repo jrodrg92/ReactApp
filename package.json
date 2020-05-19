@@ -7,6 +7,8 @@
     "npm": "6.13.4"
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/node": "^7.8.7",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.7.0",
@@ -27,8 +29,6 @@
     "redux-promise-middleware": "^4.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/node": "^7.8.7",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
