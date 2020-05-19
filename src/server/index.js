@@ -5,15 +5,21 @@ import webpackDevmiddleware from 'webpack-dev-middleware';
 import webpackHotmiddleware from 'webpack-hot-middleware';
 import open from 'open';
 
-import webpackconfig from '../../webpack.config.dev';
+import webpackconfig from '../../webpack.config.babel';
 
 const port = 3000;
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 const app= express();
 
+app.use(express.static(path.join(__dirname, '../public')))
+
 const webpackCompiler = webpack(webpackconfig);
-app.use(webpackDevmiddleware(webpackCompiler));
-app.use(webpackHotmiddleware(webpackCompiler));
+if(isDevelopment){
+    app.use(webpackDevmiddleware(webpackCompiler));
+    app.use(webpackHotmiddleware(webpackCompiler));
+}
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
@@ -21,6 +27,6 @@ app.get('*', (req, res) => {
 
 app.listen(port, err => {
     if(!err){
-        open('htp://localhost:${port}');
+        open('http://localhost:'+3000);
     }
 })
