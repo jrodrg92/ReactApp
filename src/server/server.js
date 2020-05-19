@@ -25,7 +25,7 @@ if(isDevelopment){
 app.get('*', (req, res) => {
     console.log(req);
     console.log(res);
-    res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.listen(port, err => {
