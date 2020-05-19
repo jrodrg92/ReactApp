@@ -1,3 +1,5 @@
+import http from 'http';
+import os from 'os';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
@@ -27,8 +29,4 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 })
 
-app.listen(port, err => {
-    if(!err){
-        open('http://localhost:'+8080);
-    }
-})
+log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"), router))
