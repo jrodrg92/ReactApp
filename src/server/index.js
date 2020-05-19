@@ -7,12 +7,13 @@ import open from 'open';
 
 import webpackconfig from '../../webpack.config.babel';
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const app= express();
 
+app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, '../public')))
 
 const webpackCompiler = webpack(webpackconfig);
@@ -27,7 +28,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 })
 
-app.listen(process.env.PORT || port, err => {
+app.listen(port, err => {
     if(!err){
         open('http://localhost:'+3000);
     }

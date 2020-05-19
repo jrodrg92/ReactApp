@@ -58,7 +58,7 @@ const getLoaders = () => ({
   loaders: [
     {
       test: /\.js?$/,
-      loaders: ['babel-loader'],
+      loaders: 'babel-loader',
       include: PATHS.src
     },
     {
