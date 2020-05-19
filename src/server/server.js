@@ -7,7 +7,7 @@ import open from 'open';
 
 import webpackconfig from '../../webpack.config.babel';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -30,6 +30,6 @@ app.get('*', (req, res) => {
 
 app.listen(port, err => {
     if(!err){
-        open('http://localhost:'+3000);
+        open('http://localhost:'+8080);
     }
 })
