@@ -2,6 +2,10 @@
   "name": "app1",
   "version": "0.1.0",
   "private": true,
+  "engines":{
+    "node": "12.14.1",
+    "npm": "6.13.4"
+  },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.23.0",

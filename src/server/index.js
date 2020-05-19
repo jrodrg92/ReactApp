@@ -22,10 +22,12 @@ if(isDevelopment){
 }
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    console.log(req);
+    console.log(res);
+    res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 })
 
-app.listen(port, err => {
+app.listen(process.env.PORT || port, err => {
     if(!err){
         open('http://localhost:'+3000);
     }
