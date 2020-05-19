@@ -13,7 +13,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const app= express();
 
-app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, '../public')))
 
 const webpackCompiler = webpack(webpackconfig);
@@ -25,7 +24,7 @@ if(isDevelopment){
 app.get('*', (req, res) => {
     console.log(req);
     console.log(res);
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
 })
 
 app.listen(port, err => {
