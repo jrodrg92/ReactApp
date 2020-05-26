@@ -13,7 +13,6 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const app= express();
 
-app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(path.join(__dirname, '../public')))
 
 const webpackCompiler = webpack(webpackconfig);
